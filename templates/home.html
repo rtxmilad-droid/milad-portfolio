@@ -6,6 +6,8 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Milad Vahdat Yeganeh</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -18,37 +20,20 @@
 
 <header>
 
-
     <div class="logo">
-
-        <h2>
-            Milad Vahdat Yeganeh
-        </h2>
-
+        <h2>Milad Vahdat Yeganeh</h2>
     </div>
-
 
 
     <nav>
 
         <a href="/">خانه</a>
-
-        <a href="#skills">مهارت‌ها</a>
-
-        <a href="#projects">پروژه‌ها</a>
-
         <a href="/resume/">رزومه</a>
-
         <a href="/contact/">تماس</a>
 
     </nav>
 
-
-
 </header>
-
-
-
 
 
 
@@ -61,18 +46,16 @@
 
 
     <h3>
-        Python & Django Developer 🚀
+        Developer | Gamer | Creator
     </h3>
 
 
     <p>
-        برنامه‌نویس علاقه‌مند به ساخت وب‌سایت،
-        نرم‌افزار و پروژه‌های خلاقانه
+        برنامه نویس علاقه‌مند به طراحی سایت، بازی سازی و تکنولوژی
     </p>
 
 
-
-    <a class="btn" href="#projects">
+    <a class="btn" href="/project/1/">
         مشاهده پروژه‌ها
     </a>
 
@@ -83,92 +66,151 @@
 
 
 
+<section>
+
+
+<h2>
+مهارت‌ها
+</h2>
+
+
+<div class="skills-box">
+
+
+<div class="skill-card">
+
+<img src="{% static 'images/1.png' %}">
+
+<h3>
+Python
+</h3>
+
+</div>
+
+
+
+<div class="skill-card">
+
+<img src="{% static 'images/2.png' %}">
+
+<h3>
+Django
+</h3>
+
+</div>
+
+
+
+<div class="skill-card">
+
+<img src="{% static 'images/3.png' %}">
+
+<h3>
+HTML / CSS
+</h3>
+
+</div>
+
+
+
+<div class="skill-card">
+
+<img src="{% static 'images/4.png' %}">
+
+<h3>
+Game Development
+</h3>
+
+</div>
+
+
+<div class="skill-card">
+
+<img src="{% static 'images/5.png' %}">
+
+<h3>
+GitHub
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</section>
 
 
 
 
-<section class="skills" id="skills">
-
-
-    <h2>
-        مهارت‌ها 🛠️
-    </h2>
 
 
 
-    <div class="skills-box">
+<section>
+
+
+<h2>
+پروژه‌ها
+</h2>
 
 
 
-        <div class="skill-card">
-
-            <img src="{% static 'images/1.png' %}">
-
-            <h3>
-                Python
-            </h3>
-
-        </div>
+<div class="projects">
 
 
+{% for project in projects %}
 
 
+<div class="project-card">
 
-        <div class="skill-card">
 
-            <img src="{% static 'images/2.png' %}">
+{% if project.image %}
 
-            <h3>
-                GitHub
-            </h3>
+<img class="project-image" src="{{ project.image.url }}">
 
-        </div>
+{% endif %}
 
 
 
-
-
-        <div class="skill-card">
-
-            <img src="{% static 'images/3.png' %}">
-
-            <h3>
-                Git
-            </h3>
-
-        </div>
+<h3>
+{{ project.title }}
+</h3>
 
 
 
-
-
-        <div class="skill-card">
-
-            <img src="{% static 'images/4.png' %}">
-
-            <h3>
-                PyCharm
-            </h3>
-
-        </div>
+<p>
+{{ project.description }}
+</p>
 
 
 
+{% if project.github_link %}
 
+<a href="{{ project.github_link }}" target="_blank">
+GitHub
+</a>
 
-        <div class="skill-card">
-
-            <img src="{% static 'images/5.png' %}">
-
-            <h3>
-                Django
-            </h3>
-
-        </div>
+{% endif %}
 
 
 
-    </div>
+</div>
+
+
+{% empty %}
+
+
+<p>
+هنوز پروژه‌ای اضافه نشده است
+</p>
+
+
+{% endfor %}
+
+
+
+</div>
 
 
 </section>
@@ -180,96 +222,41 @@
 
 
 
-
-<section class="projects" id="projects">
-
-
-    <h2>
-        پروژه‌ها 🚀
-    </h2>
+<section>
 
 
-
-    {% for project in projects %}
-
-
-
-    <div class="project-card">
+<h2>
+ارتباط با من
+</h2>
 
 
-        {% if project.image %}
+<div class="contact-links">
 
-        <img class="project-image"
-        src="{{ project.image.url }}"
-        alt="{{ project.title }}">
 
-        {% endif %}
+<a href="tel:09371157338">
+📞 09371157338
+</a>
 
 
 
-
-        <h3>
-
-            {{ project.title }}
-
-        </h3>
+<a href="https://www.instagram.com/miladvyd" target="_blank">
+Instagram
+</a>
 
 
 
-
-        <p>
-
-            {{ project.description }}
-
-        </p>
+<a href="https://wa.me/qr/KZFNUGGRRMSPD1" target="_blank">
+WhatsApp
+</a>
 
 
 
+<a href="https://github.com/rtxmilad-droid" target="_blank">
+GitHub
+</a>
 
 
-        <a href="{% url 'project_detail' project.id %}">
-
-            مشاهده پروژه
-
-        </a>
-
-
-
-
-
-        {% if project.github_link %}
-
-
-        <br>
-
-
-        <a href="{{ project.github_link }}" target="_blank">
-
-            GitHub
-
-        </a>
-
-
-        {% endif %}
-
-
-
-
-    </div>
-
-
-
-
-    {% empty %}
-
-
-    <p>
-        هنوز پروژه‌ای اضافه نشده
-    </p>
-
-
-    {% endfor %}
-
+</div>
 
 
 </section>
@@ -277,70 +264,13 @@
 
 
 
+<footer>
 
+<p>
+© 2026 Milad Vahdat Yeganeh
+</p>
 
-
-
-
-<section class="contact" id="contact">
-
-
-    <h2>
-        تماس با من 📩
-    </h2>
-
-
-
-    <p>
-        برای ارتباط یا همکاری پیام ارسال کنید.
-    </p>
-
-
-
-
-    <div class="contact-links">
-
-
-
-        <a href="/contact/">
-            ارسال پیام
-        </a>
-
-
-
-        <a href="https://github.com/rtxmilad-droid" target="_blank">
-            GitHub
-        </a>
-
-
-
-
-        <a href="https://www.instagram.com/miladvyd?utm_source=qr&igsh=d3RhMDlpcnFoczRr" target="_blank">
-            Instagram
-        </a>
-
-
-
-
-        <a href="https://wa.me/qr/KZFNUGGRRMSPD1" target="_blank">
-            WhatsApp
-        </a>
-
-
-
-
-        <a href="tel:09371157338">
-            09371157338
-        </a>
-
-
-
-    </div>
-
-
-</section>
-
-
+</footer>
 
 
 
