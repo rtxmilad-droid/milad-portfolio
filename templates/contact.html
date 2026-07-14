@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>تماس با من</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<section class="contact-page">
+
+
+    <h1>
+        تماس با من 📩
+    </h1>
+
+
+    <p>
+        اگر سوالی داری یا می‌خواهی درباره یک پروژه صحبت کنیم، پیام بده.
+    </p>
+
+
+
+    <form method="POST">
+
+
+        {% csrf_token %}
+
+
+
+        <input 
+        type="text" 
+        name="name"
+        placeholder="نام شما"
+        required>
+
+
+
+        <input 
+        type="email" 
+        name="email"
+        placeholder="ایمیل شما"
+        required>
+
+
+
+
+        <textarea
+        name="message"
+        placeholder="پیام شما"
+        rows="6"
+        required></textarea>
+
+
+
+        <button class="btn" type="submit">
+            ارسال پیام
+        </button>
+
+
+
+    </form>
+
+
+
+</section>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+web: gunicorn milad_portfolio.wsgi
