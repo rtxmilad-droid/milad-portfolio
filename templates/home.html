@@ -4,14 +4,12 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Milad Vahdat Yeganeh</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
 </head>
 
 
@@ -19,55 +17,43 @@
 
 
 <header>
-
     <div class="logo">
         <h2>Milad Vahdat Yeganeh</h2>
     </div>
 
-
     <nav>
-
         <a href="/">خانه</a>
         <a href="/resume/">رزومه</a>
         <a href="/contact/">تماس</a>
-
     </nav>
-
 </header>
 
 
 
 <section class="hero">
 
-
     <h1>
         Milad Vahdat Yeganeh
     </h1>
 
-
     <h3>
-        Developer | Gamer | Creator
+        Python Developer | Django Developer | Game Creator
     </h3>
 
-
     <p>
-        برنامه نویس علاقه‌مند به طراحی سایت، بازی سازی و تکنولوژی
+        برنامه نویس علاقه‌مند به ساخت وب‌سایت، بازی سازی و تکنولوژی
     </p>
 
-
-    <a class="btn" href="/project/1/">
+    <a class="btn" href="#projects">
         مشاهده پروژه‌ها
     </a>
-
 
 </section>
 
 
 
 
-
 <section>
-
 
 <h2>
 مهارت‌ها
@@ -78,66 +64,36 @@
 
 
 <div class="skill-card">
-
-<img src="{% static 'images/1.png' %}">
-
-<h3>
-Python
-</h3>
-
-</div>
-
-
-
-<div class="skill-card">
-
-<img src="{% static 'images/2.png' %}">
-
-<h3>
-Django
-</h3>
-
-</div>
-
-
-
-<div class="skill-card">
-
-<img src="{% static 'images/3.png' %}">
-
-<h3>
-HTML / CSS
-</h3>
-
-</div>
-
-
-
-<div class="skill-card">
-
-<img src="{% static 'images/4.png' %}">
-
-<h3>
-Game Development
-</h3>
-
+    <img src="{% static 'images/1.png' %}">
+    <h3>Python</h3>
 </div>
 
 
 <div class="skill-card">
-
-<img src="{% static 'images/5.png' %}">
-
-<h3>
-GitHub
-</h3>
-
+    <img src="{% static 'images/2.png' %}">
+    <h3>Django</h3>
 </div>
 
 
-
+<div class="skill-card">
+    <img src="{% static 'images/3.png' %}">
+    <h3>HTML CSS</h3>
 </div>
 
+
+<div class="skill-card">
+    <img src="{% static 'images/4.png' %}">
+    <h3>Game Development</h3>
+</div>
+
+
+<div class="skill-card">
+    <img src="{% static 'images/5.png' %}">
+    <h3>GitHub</h3>
+</div>
+
+
+</div>
 
 </section>
 
@@ -145,22 +101,17 @@ GitHub
 
 
 
-
-
-<section>
-
+<section id="projects">
 
 <h2>
 پروژه‌ها
 </h2>
 
 
-
 <div class="projects">
 
 
 {% for project in projects %}
-
 
 <div class="project-card">
 
@@ -172,11 +123,9 @@ GitHub
 {% endif %}
 
 
-
 <h3>
 {{ project.title }}
 </h3>
-
 
 
 <p>
@@ -184,15 +133,13 @@ GitHub
 </p>
 
 
-
 {% if project.github_link %}
 
 <a href="{{ project.github_link }}" target="_blank">
-GitHub
+مشاهده در GitHub
 </a>
 
 {% endif %}
-
 
 
 </div>
@@ -200,14 +147,12 @@ GitHub
 
 {% empty %}
 
-
 <p>
-هنوز پروژه‌ای اضافه نشده است
+پروژه‌ای ثبت نشده است
 </p>
 
 
 {% endfor %}
-
 
 
 </div>
@@ -220,10 +165,7 @@ GitHub
 
 
 
-
-
 <section>
-
 
 <h2>
 ارتباط با من
@@ -238,17 +180,14 @@ GitHub
 </a>
 
 
-
 <a href="https://www.instagram.com/miladvyd" target="_blank">
 Instagram
 </a>
 
 
-
 <a href="https://wa.me/qr/KZFNUGGRRMSPD1" target="_blank">
 WhatsApp
 </a>
-
 
 
 <a href="https://github.com/rtxmilad-droid" target="_blank">
